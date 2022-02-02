@@ -25,7 +25,7 @@ export const useSelect = ({ initialState }) => {
     >
 
       {
-        OPCIONES.map( option => (
+        OPCIONES?.map( option => (
           <option
             key={ option.value }
             value={ option.value }
