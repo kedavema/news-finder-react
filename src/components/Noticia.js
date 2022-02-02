@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './Noticia.module.css';
 import PropTypes from 'prop-types';
 
-export const Noticia = ({noticia}) => {
+export const Noticia = ({a_new}) => {
 
   // Extraemos los datos
-  const { urlToImage, url, description, title, source } = noticia;
+  const { urlToImage, url, description, title, source } = a_new;
 
   const imagen = {urlToImage}?
         <div className={`card-image ${styles.box_img}`}>

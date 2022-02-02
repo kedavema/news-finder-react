@@ -3,14 +3,14 @@ import { Noticia } from './Noticia';
 import PropTypes from 'prop-types';
 
 
-export const ListadoNoticias = ({noticias}) => {
+export const ListadoNoticias = ({all_news}) => {
   return (
     <div className='row'>
       {
-        noticias?.map( noticia => (
+        all_news?.map( a_new => (
           <Noticia 
-            key={noticia.url}
-            noticia={noticia}
+            key={a_new.url}
+            a_new={a_new}
           />
         ))
       }
@@ -20,5 +20,5 @@ export const ListadoNoticias = ({noticias}) => {
 
 
 ListadoNoticias.propTypes = {
-  noticias: PropTypes.array.isRequired
+  all_news: PropTypes.array.isRequired
 }
