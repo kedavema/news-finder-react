@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Formulario } from './components/Formulario';
+import { Header } from './components/Header';
+import { ListadoNoticias } from './components/ListadoNoticias';
 
 function App() {
+
+  const [category, setCategory] = useState('');
+
+  const [noticias, setNoticias] = useState([]);
+
+  useEffect(() => {
+
+    const consultarAPI = async () => {
+      const url = `https://newsapi.org/v2/top-headlines?country=mx&category=${category}&apiKey=bc38330fc9cb463583b815ea51472d10`;
+      const res = await fetch(url);
+      const {articles} = await res.json();
+      setNoticias(articles);
+    }
+    consultarAPI();
+
+  }, [category]);
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header 
+        title={"Buscador de Noticias"} 
+      />
+
+      <div className='container white'>
+        <Formulario setCategory={ setCategory } />
+      </div>
+
+      <ListadoNoticias 
+        noticias={noticias}
+      />
+    </>
   );
 }
 

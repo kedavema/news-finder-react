@@ -1,0 +1,16 @@
+.box {
+  height: 35rem;
+}
+
+.box_img {
+  height: 15rem;
+}
+
+.box_desc {
+  height: 15rem !important;
+}
+
+.button_dis {
+  display: flex;
+  justify-content: center;
+}
