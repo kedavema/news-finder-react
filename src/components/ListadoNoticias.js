@@ -3,14 +3,14 @@ import { Noticia } from './Noticia';
 import PropTypes from 'prop-types';
 
 
-export const ListadoNoticias = ({all_news}) => {
+export const ListadoNoticias = ({allNews}) => {
   return (
     <div className='row'>
       {
-        all_news?.map( a_new => (
+        allNews?.map( newObj => (
           <Noticia 
-            key={a_new.url}
-            a_new={a_new}
+            key={newObj.url}
+            a_new={newObj}
           />
         ))
       }
